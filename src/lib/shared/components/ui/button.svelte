@@ -2,7 +2,8 @@
   interface Props {
     label?: string
     icon?: string
-    variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost'
+    iconPos?: 'left' | 'right'
+    variant?: 'primary' | 'secondary' | 'accent' | 'warn' | 'outline' | 'ghost'
     size?: 'sm' | 'md' | 'lg'
     square?: boolean
     disabled?: boolean
@@ -11,6 +12,7 @@
   let {
     label,
     icon,
+    iconPos = 'left',
     variant = 'primary',
     size = 'md',
     square = false,
@@ -22,6 +24,7 @@
     primary: 'bg-rose-400 hover:bg-rose-500 border-2',
     secondary: 'bg-purple-400 hover:bg-purple-500 border-2',
     accent: 'bg-emerald-300 hover:bg-emerald-400 border-2',
+    warn: 'bg-amber-400 hover:bg-amber-500 border-2',
     outline: 'border-2',
     ghost: 'hover:bg-zinc-900/10 shadow-none',
   } satisfies Record<NonNullable<Props['variant']>, string>
@@ -33,7 +36,7 @@
   } satisfies Record<NonNullable<Props['size']>, string>
 
   let btnClass = $derived(
-    `${variants[variant]} ${sizes[size]} ${square ? 'aspect-square' : 'px-3'}`,
+    `${variants[variant]} ${sizes[size]} ${iconPos === 'right' ? 'flex-row-reverse' : 'flex-row'} ${square ? 'aspect-square' : 'px-3'}`,
   )
 </script>
 
