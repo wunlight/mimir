@@ -11,7 +11,7 @@
   </div>
   <div class="flex px-2 gap-3">
     <span class="icon-[tabler--arrow-loop-left] size-8 rotate-190"></span>
-    <Tag label="Frontend Engineer" variant="secondary" />
+    <Tag label="Frontend Engineer" />
   </div>
   <div class="flex flex-col gap-1.5 ml-auto mt-16 max-w-64 xl:max-w-72">
     <div class="self-end h-1.5 w-20 bg-zinc-900"></div>
