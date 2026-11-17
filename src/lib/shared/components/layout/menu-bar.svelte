@@ -3,9 +3,20 @@
   import Button from '../ui/button.svelte'
 
   let showMobileMenu: boolean = $state(false)
+  let isScrolled: boolean = $state(false)
+
+  function handleScroll() {
+    isScrolled = window.scrollY > 0
+  }
 </script>
 
-<div class="fixed right-4 xl:right-[max(0px,calc((100vw-1200px)/2))] top-6 flex items-center">
+<svelte:window onscroll={handleScroll} />
+
+<div
+  class="fixed right-4 xl:right-[max(0px,calc((100vw-1200px)/2))] top-6 flex items-center p-4 rounded-lg transition-all duration-300"
+  class:bg-amber-200={isScrolled}
+  class:shadow={isScrolled}
+>
   <div class="block lg:hidden">
     <Button
       icon="icon-[tabler--menu-2]"
