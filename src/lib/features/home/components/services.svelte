@@ -1,4 +1,5 @@
 <script>
+  import ContactDialog from '#lib/shared/components/layout/contact-dialog.svelte'
   import Button from '#lib/shared/components/ui/button.svelte'
 </script>
 
@@ -16,12 +17,17 @@
         </p>
       </div>
       <div class="flex gap-4">
-        <Button label="Let's Talk" icon="icon-[tabler--phone]" variant="warn" />
+        <ContactDialog>
+          {#snippet trigger(open)}
+            <Button label="Let's Talk" icon="icon-[tabler--phone]" variant="warn" onclick={open} />
+          {/snippet}
+        </ContactDialog>
         <Button
           label="Learn More"
           icon="icon-[tabler--arrow-up-right] text-2xl"
           iconPos="right"
           variant="accent"
+          disabled
         />
       </div>
     </div>
@@ -36,7 +42,12 @@
         </p>
       </div>
       <div>
-        <Button label="Learn More" icon="icon-[tabler--arrow-up-right] text-2xl" iconPos="right" />
+        <Button
+          label="Learn More"
+          icon="icon-[tabler--arrow-up-right] text-2xl"
+          iconPos="right"
+          disabled
+        />
       </div>
     </div>
     <div class="flex flex-col gap-6 px-12 py-10 bg-white">
@@ -53,6 +64,7 @@
           icon="icon-[tabler--arrow-up-right] text-2xl"
           iconPos="right"
           variant="secondary"
+          disabled
         />
       </div>
     </div>

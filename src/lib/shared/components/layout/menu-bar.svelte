@@ -1,12 +1,17 @@
 <script lang="ts">
   import { fade } from 'svelte/transition'
   import Button from '../ui/button.svelte'
+  import ContactDialog from './contact-dialog.svelte'
 
   let showMobileMenu: boolean = $state(false)
   let isScrolled: boolean = $state(false)
 
   function handleScroll() {
     isScrolled = window.scrollY > 0
+  }
+
+  function openResume() {
+    window.open('/resume.pdf', '_blank', 'noopener,noreferrer')
   }
 </script>
 
@@ -29,10 +34,14 @@
   </div>
   <div class="hidden lg:flex gap-4">
     <Button label="Home" variant="ghost" />
-    <Button label="Projects" variant="ghost" />
-    <Button label="Blog" variant="ghost" />
-    <Button label="Contact" variant="ghost" />
-    <Button label="My Resume" variant="accent" />
+    <Button label="Projects" variant="ghost" disabled />
+    <Button label="Blog" variant="ghost" disabled />
+    <ContactDialog>
+      {#snippet trigger(open)}
+        <Button label="Contact" variant="ghost" onclick={open} />
+      {/snippet}
+    </ContactDialog>
+    <Button label="My Resume" variant="accent" onclick={openResume} />
   </div>
 </div>
 
