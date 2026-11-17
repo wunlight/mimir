@@ -13,9 +13,11 @@
 <svelte:window onscroll={handleScroll} />
 
 <div
-  class="fixed right-4 xl:right-[max(0px,calc((100vw-1200px)/2))] top-6 flex items-center p-4 rounded-lg transition-all duration-300"
-  class:bg-amber-200={isScrolled}
-  class:shadow={isScrolled}
+  class={`
+    fixed right-4 xl:right-[max(0px,calc((100vw-1200px)/2))] top-6 z-9999
+    flex items-center rounded-lg transition-all duration-300
+    ${isScrolled && 'lg:p-4 lg:bg-zinc-50 lg:shadow-lg'}
+  `}
 >
   <div class="block lg:hidden">
     <Button
