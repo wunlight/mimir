@@ -8,15 +8,15 @@
   style="border-top-style: dashed"
 >
   <div class="px-12 py-6 flex flex-col h-full bg-purple-700">
-    <p class="uppercase font-medium text-xl xl:text-2xl text-white">02 | Services</p>
+    <p class="mb-6 uppercase font-medium text-xl xl:text-2xl text-white">02 | Services</p>
     <div class="flex flex-col gap-6 my-auto">
       <div class="space-y-1.5">
         <p class="font-bold text-4xl text-white">Web Application Development</p>
         <p class="text-zinc-200">
-          Developing functional web applications tailored to specific business needs.
+          Developing interactive web applications tailored to specific business needs.
         </p>
       </div>
-      <div class="flex gap-4">
+      <div class="flex flex-col md:flex-row gap-4">
         <ContactDialog>
           {#snippet trigger(open)}
             <Button label="Let's Talk" icon="icon-[tabler--phone]" variant="warn" onclick={open} />
@@ -37,8 +37,7 @@
       <div class="space-y-1.5">
         <p class="font-bold text-4xl">Website Development</p>
         <p class="text-zinc-700">
-          Building modern websites that help businesses and individuals establish their digital
-          presence.
+          Building responsive and modern websites that establish a strong digital presence.
         </p>
       </div>
       <div>
@@ -52,10 +51,9 @@
     </div>
     <div class="flex flex-col gap-6 px-12 py-10 bg-white">
       <div class="space-y-1.5">
-        <p class="font-bold text-4xl">CMS Integration & Development</p>
+        <p class="font-bold text-4xl">Custom CMS Development</p>
         <p class="text-zinc-500">
-          Integrating content management systems that make website content easier to manage and
-          update.
+          Creating tailored content management systems that simplify content management and updates.
         </p>
       </div>
       <div>
