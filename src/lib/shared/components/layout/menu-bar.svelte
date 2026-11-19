@@ -2,17 +2,12 @@
   import { fade } from 'svelte/transition'
   import Button from '../ui/button.svelte'
   import ContactDialog from './contact-dialog.svelte'
-  import resumeUrl from '/resume.pdf?url'
 
   let showMobileMenu: boolean = $state(false)
   let isScrolled: boolean = $state(false)
 
   function handleScroll() {
     isScrolled = window.scrollY > 0
-  }
-
-  function openResume() {
-    window.open(resumeUrl, '_blank', 'noopener,noreferrer')
   }
 </script>
 
@@ -42,12 +37,17 @@
         <Button label="Contact" variant="ghost" onclick={open} />
       {/snippet}
     </ContactDialog>
-    <Button label="My Resume" variant="accent" onclick={openResume} />
+    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+      <Button label="My Resume" variant="accent" />
+    </a>
   </div>
 </div>
 
 {#if showMobileMenu}
-  <div class="fixed inset-0 z-9999 bg-zinc-950/20" transition:fade={{ duration: 200 }}>
+  <div
+    class="fixed inset-0 z-9999 block pointer-fine:hidden bg-zinc-950/20"
+    transition:fade={{ duration: 200 }}
+  >
     <div class="relative flex flex-col px-4 py-6 bg-white">
       <div class="absolute right-4 top-6">
         <Button
@@ -60,10 +60,16 @@
 
       <div class="flex flex-col items-start gap-4">
         <Button label="Home" variant="ghost" />
-        <Button label="Projects" variant="ghost" />
-        <Button label="Blog" variant="ghost" />
-        <Button label="Contact" variant="ghost" />
-        <Button label="My Resume" variant="accent" />
+        <Button label="Projects" variant="ghost" disabled />
+        <Button label="Blog" variant="ghost" disabled />
+        <ContactDialog>
+          {#snippet trigger(open)}
+            <Button label="Contact" variant="ghost" onclick={open} />
+          {/snippet}
+        </ContactDialog>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Button label="My Resume" variant="accent" />
+        </a>
       </div>
     </div>
   </div>
