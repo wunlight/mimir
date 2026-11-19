@@ -2,7 +2,9 @@
   import Tag from '#lib/shared/components/ui/tag.svelte'
 </script>
 
-<div class="md:mx-auto px-4 md:px-8 py-6 md:py-10 xl:py-12 md:max-w-5xl xl:max-w-7xl bg-zinc-900">
+<div
+  class="md:mx-auto px-4 md:px-8 py-6 md:py-10 xl:py-12 md:max-w-5xl xl:max-w-7xl bg-zinc-800 border-x-4 border-zinc-900"
+>
   <p class="uppercase font-medium text-xl xl:text-2xl text-white">03 | Skills</p>
   <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-6 mx-auto px-6 py-8 w-fit">
     <div class="relative group p-6 border-2 border-zinc-500" title="Vue.js">
