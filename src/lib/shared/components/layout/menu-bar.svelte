@@ -2,6 +2,7 @@
   import { fade } from 'svelte/transition'
   import Button from '../ui/button.svelte'
   import ContactDialog from './contact-dialog.svelte'
+  import resumeUrl from './resume.pdf?url'
 
   let showMobileMenu: boolean = $state(false)
   let isScrolled: boolean = $state(false)
@@ -11,7 +12,7 @@
   }
 
   function openResume() {
-    window.open('/resume.pdf', '_blank', 'noopener,noreferrer')
+    window.open(resumeUrl, '_blank', 'noopener,noreferrer')
   }
 </script>
 
