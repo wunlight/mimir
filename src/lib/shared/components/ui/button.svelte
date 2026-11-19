@@ -45,7 +45,7 @@
     flex items-center justify-center gap-3
     border-zinc-900 rounded-lg shadow-[4px_4px_0_0_#18181b]
     transition-all select-none
-    disabled:opacity-80 disabled:pointer-events-none
+    disabled:opacity-50 disabled:pointer-events-none
     active:scale-95
     not-disabled:cursor-pointer
     ${btnClass}
