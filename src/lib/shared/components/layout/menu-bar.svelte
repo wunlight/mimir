@@ -1,25 +1,20 @@
 <script lang="ts">
+  import { page } from '$app/state'
   import { fade } from 'svelte/transition'
   import Button from '../ui/button.svelte'
   import ContactDialog from './contact-dialog.svelte'
 
   let showMobileMenu: boolean = $state(false)
-  let isScrolled: boolean = $state(false)
 
-  function handleScroll() {
-    isScrolled = window.scrollY > 0
+  const isActive = (path: string): boolean => page.url.pathname === path
+
+  const navigateTo = (path: string): void => {
+    showMobileMenu = false
+    window.location.assign(path)
   }
 </script>
 
-<svelte:window onscroll={handleScroll} />
-
-<div
-  class={`
-    fixed right-4 xl:right-[max(0px,calc((100vw-1200px)/2))] top-6 z-9999
-    flex items-center rounded-lg transition-all duration-300
-    ${isScrolled && 'lg:p-4 lg:bg-zinc-50 lg:shadow-lg'}
-  `}
->
+<div class="menu-bar">
   <div class="block lg:hidden">
     <Button
       icon="icon-[tabler--menu-2]"
@@ -29,8 +24,16 @@
     />
   </div>
   <div class="hidden lg:flex gap-4">
-    <Button label="Home" variant="ghost" />
-    <Button label="Projects" variant="ghost" disabled />
+    <Button
+      label="Home"
+      variant={isActive('/') ? 'secondary' : 'ghost'}
+      onclick={() => navigateTo('/')}
+    />
+    <Button
+      label="Projects"
+      variant={isActive('/projects') ? 'secondary' : 'ghost'}
+      onclick={() => navigateTo('/projects')}
+    />
     <Button label="Blog" variant="ghost" disabled />
     <ContactDialog>
       {#snippet trigger(open)}
@@ -74,3 +77,33 @@
     </div>
   </div>
 {/if}
+
+<style>
+  .menu-bar {
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition: all 300ms ease;
+  }
+
+  @media (min-width: 80rem) {
+    .menu-bar {
+      right: max(0px, calc((100vw - 1200px) / 2));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    @container scroll-state(scrollable: top) {
+      .menu-bar {
+        padding: 1rem;
+        background-color: var(--color-zinc-50);
+        border: 3px solid var(--color-zinc-900);
+        box-shadow: var(--shadow-lg);
+      }
+    }
+  }
+</style>

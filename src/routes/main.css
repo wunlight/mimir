@@ -7,3 +7,7 @@
 @theme {
   --font-sans: 'Space Grotesk', sans-serif;
 }
+
+html {
+  container-type: scroll-state;
+}
