@@ -16,7 +16,7 @@
 
 {#if isOpen}
   <div
-    class="fixed inset-0 z-9999 grid place-content-center bg-zinc-950/20 backdrop-blur"
+    class="fixed inset-0 z-9999 grid place-content-center px-6 bg-zinc-950/20 backdrop-blur"
     transition:fade={{ duration: 200 }}
   >
     <div class="flex flex-col gap-1.5 p-4 bg-white rounded-lg">

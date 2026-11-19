@@ -68,7 +68,7 @@
           {/snippet}
         </ContactDialog>
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          <Button label="My Resume" variant="accent" />
+          <Button label="My Resume" variant="ghost" />
         </a>
       </div>
     </div>
