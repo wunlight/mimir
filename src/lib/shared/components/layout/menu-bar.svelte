@@ -26,12 +26,12 @@
   <div class="hidden lg:flex gap-4">
     <Button
       label="Home"
-      variant={isActive('/') ? 'secondary' : 'ghost'}
+      variant={isActive('/') ? 'primary' : 'ghost'}
       onclick={() => navigateTo('/')}
     />
     <Button
       label="Projects"
-      variant={isActive('/projects') ? 'secondary' : 'ghost'}
+      variant={isActive('/projects') ? 'primary' : 'ghost'}
       onclick={() => navigateTo('/projects')}
     />
     <Button label="Blog" variant="ghost" disabled />
