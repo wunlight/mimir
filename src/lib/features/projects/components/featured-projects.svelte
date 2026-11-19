@@ -12,9 +12,9 @@
         class="h-56 bg-zinc-300 border-4 border-zinc-900 rounded-lg shadow-[4px_4px_0_0_#ec003f,9px_9px_0_0_#18181b]"
       >
         <img
-          src="/images/amigo-thumbnail.jpg"
+          src="/images/amigo-thumbnail.webp"
           alt="amigo dashboard"
-          class="size-full object-cover rounded-sm"
+          class="size-full object-cover object-bottom-right rounded-sm"
         />
       </div>
       <div class="flex flex-col pt-5 pb-3">
@@ -34,9 +34,9 @@
         class="h-56 bg-zinc-300 border-4 border-zinc-900 rounded-lg shadow-[4px_4px_0_0_#fcc800,9px_9px_0_0_#18181b]"
       >
         <img
-          src="/images/heimdall-thumbnail.jpg"
+          src="/images/heimdall-thumbnail.webp"
           alt="heimdall prototype"
-          class="size-full object-cover rounded-sm"
+          class="size-full object-cover object-top-left rounded-sm"
         />
       </div>
       <div class="flex flex-col pt-5 pb-3">
