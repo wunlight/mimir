@@ -2,7 +2,7 @@
   import { fade } from 'svelte/transition'
   import Button from '../ui/button.svelte'
   import ContactDialog from './contact-dialog.svelte'
-  import resumeUrl from './resume.pdf?url'
+  import resumeUrl from '/resume.pdf?url'
 
   let showMobileMenu: boolean = $state(false)
   let isScrolled: boolean = $state(false)
